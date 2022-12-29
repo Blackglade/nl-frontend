@@ -1,0 +1,39 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+	--bgColor: #171717;
+	--borderBlack: #303030;
+	--darkerText: #232323;
+	--lightText: #707070;
+	--accentLight: #BFB6DB;
+	--accentDark: #906AFB;
+	--success: #3CA252;
+	--error: #E44544;
+}
+
+
+body {
+	@apply bg-bgColor text-white;
+	font-family: 'Source Sans Pro', sans-serif;
+	font-size: 16px;
+}
+
+.card { 
+	@apply flex items-center justify-between w-full p-4 bg-black rounded-md;
+}
+
+.table {
+	@apply w-full text-left;
+}
+
+.table :where(:first-child) :where(:first-child) :where(th,td):first-child { @apply rounded-tl-md; }
+.table :where(:first-child) :where(:first-child) :where(th,td):last-child { @apply rounded-tr-md; }
+.table :where(thead,tbody) :where(tr:not(:last-child) :where(th,td)) {
+	@apply border-b border-borderBlack;
+}
+
+.button {
+	@apply bg-black py-2.5 px-3 disabled:bg-darkerText disabled:pointer-events-none rounded border border-borderBlack hover:border-accentLight hover:bg-accentDark;
+}
